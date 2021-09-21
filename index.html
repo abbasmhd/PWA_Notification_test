@@ -7,9 +7,11 @@
 <boody>
     <script>
         function askPermition() {
+
+            console.log("askPermition");
+
             // Let's check if the browser supports notifications
-            if (!('Notification' in window)) {
-                
+            if ('Notification' in window) {
                 // Request notification from user.
                 Notification.requestPermission()
                 .then((permission) => {
@@ -26,9 +28,10 @@
         
         function notify() {
             var notification = new Notification("Hello World!");
+            console.log("notify");
         }
         </script>
-        
+
         <button onClick="askPermition()">Ask</button>
         <button onClick="notify()">Notify</button>
 </boody>
