@@ -1,0 +1,5 @@
+{
+  "display": "standalone",
+  "scope": "/PWA_Notification_test/",
+  "start_url": "/PWA_Notification_test/"
+}
