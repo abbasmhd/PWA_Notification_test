@@ -35,41 +35,55 @@
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
             padding: 25px;
             width: 400px;
-    height: 250px;
+            height: 250px;
             background: white;
         }
     </style>
+    <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+    <script src="service-worker.js" />
 </head>
 <boody>
     <script>
-        function askPermition() {
+        // function askPermition() {
 
-            console.log("askPermition");
+        //     console.log("askPermition");
 
-            // Let's check if the browser supports notifications
-            if ('Notification' in window) {
+        //     // Let's check if the browser supports notifications
+        //     if ('Notification' in window) {
 
-                console.log("asking for permition");
+        //         console.log("asking for permition");
 
-                // Request notification from user.
-                Notification.requestPermission()
-                    .then((permission) => {
-                        console.log(permission);
-                    })
+        //         // Request notification from user.
+        //         Notification.requestPermission()
+        //             .then((permission) => {
+        //                 console.log(permission);
+        //             })
 
-                // Check the notification response
-                // Notification.permission === 'default' // the default is to ask and display the popup message
-                // Notification.permission === 'denied'
-                // Notification.permission === 'granted'
+        //         // Check the notification response
+        //         // Notification.permission === 'default' // the default is to ask and display the popup message
+        //         // Notification.permission === 'denied'
+        //         // Notification.permission === 'granted'
 
-            }
-        }
+        //     }
+        // }
 
-        function notify() {
-            var notification = new Notification("Hello World!");
-            console.log("notify");
-        }
+        // function notify() {
+        //     var notification = new Notification("Hello World!");
+        //     console.log("notify");
+        // }
     </script>
+
+    <script>
+        const beamsClient = new PusherPushNotifications.Client({
+            instanceId: '47aee597-bc8e-4b71-8701-e7c53da0021f',
+        });
+
+        beamsClient.start()
+            .then(() => beamsClient.addDeviceInterest('hello'))
+            .then(() => console.log('Successfully registered and subscribed!'))
+            .catch(console.error);
+    </script>
+
     <div id="vh" class="box">
         <button onClick="askPermition()">Ask</button>
         <button onClick="notify()">Notify</button>
