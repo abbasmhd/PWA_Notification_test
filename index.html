@@ -15,9 +15,27 @@
         }
 
         button {
-            width:100%;
+            width: 100%;
             margin: 60px 0;
             display: block;
+        }
+
+        #vh {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .box {
+            border-radius: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            width: 100px;
+            height: 100px;
+            background: white;
         }
     </style>
 </head>
@@ -51,7 +69,7 @@
             console.log("notify");
         }
     </script>
-    <div>
+    <div id="vh" class="box">
         <button onClick="askPermition()">Ask</button>
         <button onClick="notify()">Notify</button>
     </div>
