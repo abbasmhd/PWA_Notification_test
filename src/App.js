@@ -44,7 +44,7 @@ class App extends Component {
         </div>
       </BrowserRouter>
 
-      <button onClick={ () => this.startPwa()} >TEST</button>
+      <button onClick={ () => this.startPwa()} >Subscribe to PWA notifications</button>
 
       </>
     );
